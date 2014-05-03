@@ -27,6 +27,6 @@ def get_track_description(track_id):
     out += '-- [Track No. %s in %s]' % (track_no, album)
     return out
 
-@hook.regex(r'(?i)http[s]://open\.spotify\.com/track/([A-Za-z0-9]+)|http[s]://play\.spotify\.com/track/([A-Za-z0-9]+)')
+@hook.regex(r'(?i)https?://(open|play)\.spotify\.com/track/([A-Za-z0-9]+)')
 def spotify_url(match):
     return get_track_description(match.group())
